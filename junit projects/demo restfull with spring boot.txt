@@ -1,0 +1,57 @@
+// demo resful spring boot for login page
+
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+	}
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+</head>
+<body>
+
+<h1>Login</h1>
+
+<form action="/login" method="post">
+  <input type="text" name="username" placeholder="Username">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Login">
+</form>
+
+</body>
+</html>
+
+
+
+package com.example.demo;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@Controller
+public class LoginController {
+
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+
+	@PostMapping("/login")
+	public String doLogin() {
+		// TODO: Implement login logic
+		return "index";
+	}
+
+}
